@@ -102,9 +102,27 @@ __Controlled form element/Controlled field:__  Element whose value is set by sta
 
 A controlled component's value can ONLY change when state changes. So if there is an event handler to set state on change, the value of the input and the state prop will be bound, instead of set independently. Typing in the field would _NOT_ actually set the field's `value` _unless_ it was rendered as a Controlled element.
 
-## Section 2:
+## Section 2: Ajax Requests with React
 
 > "Downwards data flow":  
 > Only most parent component should be responsible for fetching data (from API or Flux, etc).
 
 `index.js` is our most parent component, and all its children will need to use the fetched data.
+
+_Use of state:_  
+Whenever a user enters some search input, we will conduct a new search and set the results of the search on state.
+
+> ### ES6: 
+> Whenever we have a key/value that is the same string, we can condense it to just the name of the variable. Example:  
+>```
+> YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+>   this.setState({ videos: videos });
+> });
+>```
+>becomes:
+>```
+>YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+>    this.setState({ videos });
+>});
+>```
+
