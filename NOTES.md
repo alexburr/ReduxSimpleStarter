@@ -1,7 +1,6 @@
 # REACT/REDUX COURSE
 
 ## Section 1: Intro to React
-----------------------------
 
 React: Components/Views
 
@@ -102,3 +101,10 @@ State object must be initialized in constructor:
 __Controlled form element/Controlled field:__  Element whose value is set by state, instead of the other way around.
 
 A controlled component's value can ONLY change when state changes. So if there is an event handler to set state on change, the value of the input and the state prop will be bound, instead of set independently. Typing in the field would _NOT_ actually set the field's `value` _unless_ it was rendered as a Controlled element.
+
+## Section 2:
+
+> "Downwards data flow":  
+> Only most parent component should be responsible for fetching data (from API or Flux, etc).
+
+`index.js` is our most parent component, and all its children will need to use the fetched data.
