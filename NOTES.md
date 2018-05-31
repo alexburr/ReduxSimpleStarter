@@ -158,3 +158,9 @@ Stay away from `for` loops if possible... use built-in iterators like `.map`:
 >array.map(function(number) { return '<div>' + number + '</div>'});
 >```
 >This will return `["<div>1</div>","<div>2</div>","<div>3</div>"]`
+
+React is clever&mdash;but almost _too_ clever. When we are building an array of the same type, React assumes it is a list, and has internal optimizations for rendering lists.
+
+So when updating a list, it will update a list item by ID if possible, otherwise it has to rebuild the entire list. 
+
+In our data result from YouTube, each video has an `etag` property that we can use as the key for each item in our `VideoList`.
