@@ -176,7 +176,20 @@ In our data result from YouTube, each video has an `etag` property that we can u
 >const VideoListItem = ({video}) => {
 >   ...
 >```
->In other words, "the first object in the arguments has a property called `video`. Please gather it and declare a new variable called `video`."
+>In other words, "the first object in the arguments has a property called `video`. Please gather it and declare a new variable called `video`." 
+>
+>This can be done with more than one argument:
+>```
+>const VideoListItem = (props) => {
+>   const video = props.video;
+>   const onVideoSelect = props.onVideoSelect;
+>   ...
+>```
+> can be refactored to:
+>```
+>const VideoListItem = ({video, onVideoSelect}) => {
+>   ...
+>```
 
 ### Ask Yourself:  
 #### _"Do I need this component to maintain any kind of state?"_
