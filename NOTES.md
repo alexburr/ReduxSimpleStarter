@@ -189,3 +189,5 @@ Our video detail only needs to care about URL, title, thumbnail, which are all p
 > `'https://www.youtube.com/embed/' + videoId;`
 >becomes
 > `` `https://www.youtube.com/embed/${videoId}`; ``
+
+**NOTE:** React wants to render immediately. Some parent objects can't fetch fast enough to satisfy a child object. So null/undefined checks are important.
