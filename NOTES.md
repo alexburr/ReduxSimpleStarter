@@ -125,4 +125,17 @@ Whenever a user enters some search input, we will conduct a new search and set t
 >    this.setState({ videos });
 >});
 >```
+### VideoList Component
+Video_list will be a _functional component_:
+* Uses Bootstrap class names in markup
+  * In JSX we need to specify `className` attribute
+* When importing, the `from` is a path, so start relative to current directory (e.g. `'./'`);
 
+`App` is the parent to `VideoList` and it needs the list of videos from `App` state. Some data will need to pass from parent to the child&mdash;by defining a property on the child JSX tag in the parent: `<VideoList videos={this.state.videos}>`
+
+This will be a `prop` that is passed to `VideoList`.  
+Any time the component renders it will get the news list as well. 
+
+With a functional component, the `props` object will arrive as an argument to the function: `const VideoList = (props) => {`
+
+When reloading the page, the property has no value at first render, so if we output `props.videos.length` to the screen, it will briefly display `0` before being updated to `5`.
