@@ -204,3 +204,8 @@ Our video detail only needs to care about URL, title, thumbnail, which are all p
 > `` `https://www.youtube.com/embed/${videoId}`; ``
 
 **NOTE:** React wants to render immediately. Some parent objects can't fetch fast enough to satisfy a child object. So null/undefined checks are important.
+
+>### LODASH:
+>`debounce()` Has ability to throttle existing callback: Will take a function and return a new function that can only be called every _`x`_ milliseconds (300 in our example).
+
+If we pass the `debounced` callback into `SearchBar`, it will only run every 300ms, meaning we will only trigger a new search once every 300ms.
