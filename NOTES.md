@@ -209,3 +209,14 @@ Our video detail only needs to care about URL, title, thumbnail, which are all p
 >`debounce()` Has ability to throttle existing callback: Will take a function and return a new function that can only be called every _`x`_ milliseconds (300 in our example).
 
 If we pass the `debounced` callback into `SearchBar`, it will only run every 300ms, meaning we will only trigger a new search once every 300ms.
+
+#### A note about state:
+* _Whenever we change state, the component __instantly__ re-renders, along with any children!_
+* _State is __component-level__ so far in React. That will change a bit in Redux._  
+
+#### A note about import:
+_Whenever we have a file to import that __we wrote__, we use a __relative path__ reference._  
+_Whenever we have to import a __library__, we just give the __name__ of the library._
+
+#### A note about callbacks:
+In many Redux-themed applications, callback passing is less common that what we've done so far in the video search demo app.
