@@ -139,3 +139,22 @@ Any time the component renders it will get the news list as well.
 With a functional component, the `props` object will arrive as an argument to the function: `const VideoList = (props) => {`
 
 When reloading the page, the property has no value at first render, so if we output `props.videos.length` to the screen, it will briefly display `0` before being updated to `5`.
+
+>### In a _functional_ component, the `props` object is an argument.   
+>### In a _class_ component, `props` are available in any method as `this.props`.
+
+### Lists
+Making lists with React is easy: loop over array and generate a new item!  
+Stay away from `for` loops if possible... use built-in iterators like `.map`:
+
+>### ES6:
+>`array.map` returns a function that will be run on each item in the array.
+>```
+>var array = [1, 2, 3];
+>array.map(function(number) { return number * 2 });
+>```
+>This will return `[2,4,6]`
+>```
+>array.map(function(number) { return '<div>' + number + '</div>'});
+>```
+>This will return `["<div>1</div>","<div>2</div>","<div>3</div>"]`
