@@ -161,6 +161,20 @@ Stay away from `for` loops if possible... use built-in iterators like `.map`:
 
 React is clever&mdash;but almost _too_ clever. When we are building an array of the same type, React assumes it is a list, and has internal optimizations for rendering lists.
 
-So when updating a list, it will update a list item by ID if possible, otherwise it has to rebuild the entire list. 
+So when updating a list, it will update a list item by ID (`key`) if possible, otherwise it has to rebuild the entire list.
 
 In our data result from YouTube, each video has an `etag` property that we can use as the key for each item in our `VideoList`.
+
+>### ES6: 
+>```
+>const VideoListItem = (props) => {
+>   const video = props.video;
+>   ...
+>```
+> can be refactored to:
+>```
+>const VideoListItem = ({video}) => {
+>   ...
+>```
+>In other words, "the first object in the arguments has a property called `video`. Please gather it and declare a new variable called `video`."
+
