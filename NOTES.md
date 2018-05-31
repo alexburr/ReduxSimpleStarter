@@ -178,3 +178,14 @@ In our data result from YouTube, each video has an `etag` property that we can u
 >```
 >In other words, "the first object in the arguments has a property called `video`. Please gather it and declare a new variable called `video`."
 
+### Ask Yourself:  
+#### _"Do I need this component to maintain any kind of state?"_
+
+Our video detail only needs to care about URL, title, thumbnail, which are all props that will be passed down. Therefore it can be a simple _functional_ component.
+
+>### ES6:
+> _Template String/Template Literal_:  
+> Wrap a string in `` ` `` (instead of ``'`` or ``"``) for string interpolation:   
+> `'https://www.youtube.com/embed/' + videoId;`
+>becomes
+> `` `https://www.youtube.com/embed/${videoId}`; ``
