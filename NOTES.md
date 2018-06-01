@@ -220,3 +220,81 @@ _Whenever we have to import a __library__, we just give the __name__ of the libr
 
 #### A note about callbacks:
 In many Redux-themed applications, callback passing is less common that what we've done so far in the video search demo app.
+
+## Section 2: Intro to Redux
+
+Redux is just the beginning of the road: Webpack, Redux Router, React Router, Redux Promise, Redux Thunk, Hot reloading, etc. We'll go through the basics of what Redux really is and what it does for us: How to model some apps using Redux, including building an app on top of the boilerplate app we've already built.
+
+### What the hell is Redux?
+- Predictable state container for JS apps! (_Say what?_)
+
+### Book App example diagram:
+```
+Data contained in the           Views contained in the
+     application                     application
++-------------------+     +--------------------------------+
+| +---------------+ |     | +-----------+                  |
+| | List of Books | |     | | List View |                  |
+| +---------------+ |     | +-----------+  +-------------+ |
+| +---------------+ |     |                | Detail View | |
+| |   Currently   | |     | +-----------+  +-------------+ |
+| |   Selected    | |     | | List View |                  |
+| |     Book      | |     | +-----------+                  |
+| +---------------+ |     +--------------+-----------------+
++--------+----------+                    |
+         |                               |
+         |        +-----------------+    |
+         +------->| Working, Usable |<---+
+                  |       App       |
+                  +-----------------+
+```
+We want to separate the _data_ in our app from the _views_ in our app.
+
+In this example, Redux the the _data contained in the app_ box, whereas React is the _views contained in the app_ box.
+
+When Redux says it's a "state container", it means "a collection of all the data that describes the app". Not just hard data (list of books), but meta-level properties like "what is the currently selected book?"
+
+> With Redux, _all of the application data_ is centralized in a single object (the _state_).
+
+In other words, Redux state is _application-level_ state, not React component-level state.
+
+#### Simple state example
+
+Counter: Press a button and it is incremented, press another and it is decremented.  
+What would a diagram separating the app into data vs views, what would it look like?
+
+Well, the only piece of data is the Current Count. In the view, there are two components: Plus/minus button and Current Count display:
+```
+Data contained in the     Views contained in the
+     application              application
++-------------------+     +-------------------+
+| +---------------+ |     | +---------------+ |
+| | Current Count | |     | | Current Count | |
+| +---------------+ |     | +---------------+ |
++--------+----------+     | +---------------+ |
+         |                | | NumberChanger | |
+         |                | +---------------+ |
+         |                +--------------+----+
+         |                               |
+         |      +-----------------+      |
+         +----->| Working, Usable |<-----+
+                |       App       |
+                +-----------------+
+```
+One of the most important parts of creating a Redux app is figuring out how to design your state.
+
+Let's take a look at how to model something like Tinder:  
+Data contained in the application (Redux)|Views contained in the application (React)
+---|---
+1. Users (contains images and chat logs)|A. Image Card
+2. List of current users with a conversation|B. Like/Dislike Buttons
+3. List of users to be reviewed|C. ConversationList (list of open conversations)
+4. Currently viewed conversation|D. TextItem (individual message)
+5. Currently viewed User for image swiping|E. TextList(list of chat messages)
+
+* To show the swiping screen (single image with like/dislike), we need data elements 3 and 5. We need a list of users that have been rated and not been rated (1).
+* To show the active conversations screen, we need data element 2.
+* To show a single conversation screen, we need data element 4. 
+
+All the data to show our app sits in a single object using Redux. This is our _application state_.
+
